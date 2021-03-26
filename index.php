@@ -6,6 +6,7 @@ $databasename = "example";
 $conn = mysqli_connect($servername,$username,$password,$databasename);
 ?>
 
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -24,7 +25,7 @@ $conn = mysqli_connect($servername,$username,$password,$databasename);
             <div class="clear"></div>
         </div>
         <div id="container">
-            <textarea id="area" rows="10" cols="50">make a change</textarea>
+            <textarea id="area" rows="10" cols="50">Modifying</textarea>
         </div>
         <div id="controls">
             <p><a href="javascript:save();" class="button">Save</a>
