@@ -25,7 +25,7 @@ $conn = mysqli_connect($servername,$username,$password,$databasename);
             <div class="clear"></div>
         </div>
         <div id="container">
-            <textarea id="area" rows="10" cols="50">Modifying</textarea>
+            <textarea id="area" rows="10" cols="50">More Changes</textarea>
         </div>
         <div id="controls">
             <p><a href="javascript:save();" class="button">Save</a>
