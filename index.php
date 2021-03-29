@@ -1,9 +1,15 @@
 <?php
-$servername = "practicedatabase.czxgxu5qixl3.us-west-1.rds.amazonaws.com";
-$username = "admin";
-$password = "adarshhi1poofy";
-$databasename = "example";
-$conn = mysqli_connect($servername,$username,$password,$databasename);
+/*
+    $servername = "practicedatabase.czxgxu5qixl3.us-west-1.rds.amazonaws.com";
+    $username = "admin";
+    $password = "adarshhi1poofy";
+    $databasename = "example";
+    $conn = mysqli_connect($servername,$username,$password,$databasename);
+*/
+    $name = $_GET['person'];
+
+    echo strrev($name." is a handsome fellow");
+
 ?>
 
 
@@ -11,10 +17,14 @@ $conn = mysqli_connect($servername,$username,$password,$databasename);
 <html>
     <head>
         <title>HTML5 Application Development</title>
-        <link rel="stylesheet" type="text/css" href="styles.css" />
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
         <script src="functionality.js"></script>
     </head>
     <body>
+        <form method = "GET">
+        <input type ="text" name = "person">
+        <button>SUBMIT</button>
+        </form>
         <div id="header">
             <div id="name">Web Note</div>
             <div id="menubutton"><a id="menulink" href="#">MENU</a></div>
