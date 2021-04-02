@@ -1,19 +1,41 @@
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>HTML5 Application Development</title>
         <link rel="stylesheet" type="text/css" href="styles.css"/>
-        <script src="functionality.js"></script>
     </head>
     <body>
-        <div id="header">
-                <div id="name">Web Note</div>
+        <div>
+            <div id="name">Web Note</div>
         </div>
 
-        <form action = "" method = "post">
-            <input type ="text" name = "note" placeholder = "Type in your note!">
+        <form action = "note.php" method = "post">            
+            <textarea name = "note"> Type in your note! </textarea>
             <input type = "submit" name = "submit">
+            <br>
+
+            <?php
+                include_once 'dbc.php';
+                $sql = "SELECT * FROM example.notes;";
+                $result = mysqli_query($conn,$sql);
+                $data = array();
+            
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    $data[] = $row;
+                }
+                
+                foreach ($data as $curr)
+                {
+                    $value = $curr['notes'];
+                    echo "
+                        {$value}<br>                    
+                    ";
+                }
+
+
+                print_r($data);
+            ?>
         </form>
     </body>
 </html>

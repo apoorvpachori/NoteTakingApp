@@ -1,17 +1,20 @@
 <?php
-    include_once 'dbc.php';
-?>
 
-<?php
-$sql = "SELECT * FROM users;";
-    
+    $note = $_POST['note'];
+
+    $sql = "INSERT INTO example.notes (notes) 
+    VALUES ('$note');";
+    mysqli_query($conn, $sql);
+
+    $sql = "SELECT * FROM example.notes;";
     $result = mysqli_query($conn,$sql);
-    
-    $resultCheck = mysqli_num_rows($result);
-    if($resultCheck > 0)
+    $data = array();
+
+    while($row = mysqli_fetch_assoc($result))
     {
-        while($row = mysqli_fetch_assoc($result))
-        {
-            echo $row['user_uid'] . "<br>";
-        }
+        $data[] = $row;
+        echo "hi";
     }
+
+
+    header("Location: ../index.php");
