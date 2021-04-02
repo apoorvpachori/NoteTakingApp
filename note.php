@@ -1,4 +1,5 @@
 <?php
+    include_once 'dbc.php';
 
     $note = $_POST['note'];
 
@@ -15,6 +16,4 @@
         $data[] = $row;
         echo "hi";
     }
-
-
     header("Location: ../index.php");

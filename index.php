@@ -3,6 +3,9 @@
     <head>
         <title>HTML5 Application Development</title>
         <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <style>
+            <?php include "styles.css" ?>
+        </style>
     </head>
     <body>
         <div>
@@ -28,12 +31,13 @@
                 foreach ($data as $curr)
                 {
                     $value = $curr['notes'];
-                    echo "
-                        {$value}<br>                    
+                    echo "<div class=\"grid-container\">";
+                    echo "<p>
+                        {$value}<br> 
+                        </p>                   
                     ";
+                    echo "</div>";
                 }
-
-
                 print_r($data);
             ?>
         </form>
