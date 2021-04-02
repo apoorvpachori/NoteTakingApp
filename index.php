@@ -1,25 +1,3 @@
-<?php
-
-    $servername = "practicedatabase.czxgxu5qixl3.us-west-1.rds.amazonaws.com";
-    $username = "admin";
-    $password = "adarshhi1poofy";
-    $databasename = "example";
-    $conn = mysqli_connect($servername,$username,$password,$databasename);
-
-    $sql = "SELECT * FROM users;";
-    
-    $result = mysqli_query($conn,$sql);
-    
-    $resultCheck = mysqli_num_rows($result);
-    if($resultCheck > 0)
-    {
-        while($row = mysqli_fetch_assoc($result))
-        {
-            echo $row['user_uid'] . "<br>";
-        }
-    }
-?>
-
 
 <!DOCTYPE html>
 <html>
@@ -29,25 +7,13 @@
         <script src="functionality.js"></script>
     </head>
     <body>
-        <form method = "GET">
-        <input type ="text" name = "person">
-        <button>SUBMIT</button>
-        </form>
         <div id="header">
-            <div id="name">Web Note</div>
-            <div id="menubutton"><a id="menulink" href="#">MENU</a></div>
-            <div id="menu" class="hiddenmenu">
-                <div class="menuitem"><a id="home" href="#">Home</a></div>
-                <div class="menuitem"><a id="about" href="#">About us</a></div>
-            </div>
-            <div class="clear"></div>
+                <div id="name">Web Note</div>
         </div>
-        <div id="container">
-            <textarea id="area" rows="10" cols="50">Changing on this branch</textarea>
-        </div>
-        <div id="controls">
-            <p><a href="javascript:save();" class="button">Save</a>
-                <a href="javascript:clear();" class="button">Clear</a></p>
-        </div>
+
+        <form action = "" method = "post">
+            <input type ="text" name = "note" placeholder = "Type in your note!">
+            <input type = "submit" name = "submit">
+        </form>
     </body>
 </html>
