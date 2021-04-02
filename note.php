@@ -14,6 +14,5 @@
     while($row = mysqli_fetch_assoc($result))
     {
         $data[] = $row;
-        echo "hi";
     }
     header("Location: ../index.php");

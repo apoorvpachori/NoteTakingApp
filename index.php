@@ -27,18 +27,15 @@
                 {
                     $data[] = $row;
                 }
-                
+                echo "<div class=\"grid-container\">";
+
                 foreach ($data as $curr)
                 {
                     $value = $curr['notes'];
-                    echo "<div class=\"grid-container\">";
-                    echo "<p>
-                        {$value}<br> 
-                        </p>                   
-                    ";
-                    echo "</div>";
+                    echo "<div class=\"grid-item\">{$value}</div>";
                 }
-                print_r($data);
+                echo "</div>";
+
             ?>
         </form>
     </body>
