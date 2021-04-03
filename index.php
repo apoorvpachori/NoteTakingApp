@@ -1,35 +1,42 @@
-<?php
-$servername = "practicedatabase.czxgxu5qixl3.us-west-1.rds.amazonaws.com";
-$username = "admin";
-$password = "adarshhi1poofy";
-$databasename = "example";
-$conn = mysqli_connect($servername,$username,$password,$databasename);
-?>
-
-
 <!DOCTYPE html>
 <html>
     <head>
         <title>HTML5 Application Development</title>
-        <link rel="stylesheet" type="text/css" href="styles.css" />
-        <script src="functionality.js"></script>
+        <link rel="stylesheet" type="text/css" href="styles.css"/>
+        <style>
+            <?php include "styles.css" ?>
+        </style>
     </head>
     <body>
-        <div id="header">
+        <div>
             <div id="name">Web Note</div>
-            <div id="menubutton"><a id="menulink" href="#">MENU</a></div>
-            <div id="menu" class="hiddenmenu">
-                <div class="menuitem"><a id="home" href="#">Home</a></div>
-                <div class="menuitem"><a id="about" href="#">About us</a></div>
-            </div>
-            <div class="clear"></div>
         </div>
-        <div id="container">
-            <textarea id="area" rows="10" cols="50">Changing on this branch</textarea>
-        </div>
-        <div id="controls">
-            <p><a href="javascript:save();" class="button">Save</a>
-                <a href="javascript:clear();" class="button">Clear</a></p>
-        </div>
+
+        <form action = "note.php" method = "post">            
+            <textarea name = "note"> Type in your note! </textarea>
+            <input type = "submit" name = "submit">
+            <br>
+
+            <?php
+                include_once 'dbc.php';
+                $sql = "SELECT * FROM example.notes;";
+                $result = mysqli_query($conn,$sql);
+                $data = array();
+            
+                while($row = mysqli_fetch_assoc($result))
+                {
+                    $data[] = $row;
+                }
+                echo "<div class=\"grid-container\">";
+
+                foreach ($data as $curr)
+                {
+                    $value = $curr['notes'];
+                    echo "<div class=\"grid-item\">{$value}</div>";
+                }
+                echo "</div>";
+
+            ?>
+        </form>
     </body>
 </html>
